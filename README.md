@@ -20,6 +20,7 @@ This `main` branch is an aggregator that links those three branch-based projects
 - `backend/` submodule tracking branch `backend`
 - `frontend/` submodule tracking branch `frontend`
 - `cli/` submodule tracking branch `cli`
+- `bundle/` submodule tracking branch `bundle` (generated release output)
 
 Each layer is developed on its own branch, then pinned here by submodule commit pointers.
 
@@ -64,3 +65,19 @@ git commit -m "Bump <path> submodule"
 ```
 
 4. Push `main` to share updated pinned revisions.
+
+## Generated Bundle Branch
+
+`bundle` is generated output for one-process deploys (API + UI). Do not hand-edit inside `bundle/`.
+
+Generate or refresh it from `main`:
+
+```bash
+node scripts/build-bundle.mjs
+```
+
+Push updated bundle branch and superproject pointers:
+
+```bash
+node scripts/build-bundle.mjs --push
+```
