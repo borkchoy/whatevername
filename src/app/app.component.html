@@ -1,12 +1,12 @@
 <main class="shell">
-  <section class="card">
-    <header class="heading">
+  <section class="card page-hero">
+    <header class="heading hero-copy">
       <h1>Snip</h1>
       <p>Tiny URL shortener frontend</p>
       <small>Backend: {{ backendOrigin }}</small>
     </header>
 
-    <form class="create-form" (submit)="onSubmit($event)">
+    <form class="create-form chat-form" (submit)="onSubmit($event)">
       <label for="urlInput">Paste URL</label>
       <div class="row">
         <input
@@ -21,17 +21,17 @@
         </button>
       </div>
       @if (submitError()) {
-        <p class="error">{{ submitError() }}</p>
+        <p class="error notice">{{ submitError() }}</p>
       }
       @if (createdLink(); as link) {
-        <p class="success">
+        <p class="success notice">
           Short link:
           <a [href]="link.shortUrl" target="_blank" rel="noopener">{{ link.shortUrl }}</a>
         </p>
       }
     </form>
 
-    <section class="links">
+    <section class="links links-card">
       <div class="links-header">
         <h2>All Links</h2>
         <button type="button" class="ghost" (click)="reloadLinks()" [disabled]="loading()">Refresh</button>
