@@ -1,0 +1,154 @@
+:host {
+	color: #1f2a37;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.shell {
+	min-height: 100vh;
+	padding: 2rem 1rem;
+	background: linear-gradient(145deg, #f7fafc 0%, #edf2f7 60%, #e2e8f0 100%);
+}
+
+.card {
+	max-width: 900px;
+	margin: 0 auto;
+	background: #ffffff;
+	border: 1px solid #d7dee7;
+	border-radius: 14px;
+	padding: 1.5rem;
+	box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+
+.heading h1 {
+	margin: 0;
+	font-size: 1.8rem;
+}
+
+.heading p {
+	margin: 0.2rem 0 0;
+	color: #4a5568;
+}
+
+.heading small {
+	color: #64748b;
+}
+
+.create-form {
+	margin-top: 1.25rem;
+}
+
+label {
+	display: block;
+	margin-bottom: 0.5rem;
+	font-weight: 600;
+}
+
+.row {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 0.65rem;
+}
+
+input {
+	border: 1px solid #cbd5e1;
+	border-radius: 9px;
+	padding: 0.7rem 0.8rem;
+	font-size: 0.95rem;
+}
+
+button {
+	border: 0;
+	border-radius: 9px;
+	padding: 0.7rem 1rem;
+	font-weight: 600;
+	cursor: pointer;
+	background: #0f766e;
+	color: #ffffff;
+}
+
+button:disabled {
+	cursor: not-allowed;
+	opacity: 0.6;
+}
+
+.ghost {
+	background: #e2e8f0;
+	color: #1f2937;
+}
+
+.error {
+	color: #b91c1c;
+	margin: 0.65rem 0 0;
+}
+
+.success {
+	color: #115e59;
+	margin: 0.65rem 0 0;
+}
+
+.success a {
+	color: #0f766e;
+}
+
+.links {
+	margin-top: 1.5rem;
+}
+
+.links-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.75rem;
+}
+
+.links-header h2 {
+	margin: 0;
+	font-size: 1.1rem;
+}
+
+.table-wrap {
+	overflow-x: auto;
+	border: 1px solid #e2e8f0;
+	border-radius: 10px;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+th,
+td {
+	text-align: left;
+	border-bottom: 1px solid #eef2f7;
+	padding: 0.65rem 0.75rem;
+	vertical-align: top;
+}
+
+th {
+	background: #f8fafc;
+	font-weight: 700;
+}
+
+td a {
+	color: #0f766e;
+	word-break: break-all;
+}
+
+.muted {
+	color: #64748b;
+}
+
+@media (max-width: 700px) {
+	.card {
+		padding: 1rem;
+	}
+
+	.row {
+		grid-template-columns: 1fr;
+	}
+
+	button {
+		width: 100%;
+	}
+}

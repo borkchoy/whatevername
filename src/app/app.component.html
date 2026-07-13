@@ -1,0 +1,72 @@
+<main class="shell">
+  <section class="card">
+    <header class="heading">
+      <h1>Snip</h1>
+      <p>Tiny URL shortener frontend</p>
+      <small>Backend: {{ backendOrigin }}</small>
+    </header>
+
+    <form class="create-form" (submit)="onSubmit($event)">
+      <label for="urlInput">Paste URL</label>
+      <div class="row">
+        <input
+          id="urlInput"
+          type="url"
+          placeholder="https://example.com/page"
+          [value]="urlInput()"
+          (input)="onUrlInput($event)"
+        />
+        <button type="submit" [disabled]="!canSubmit()">
+          {{ submitting() ? 'Saving...' : 'Shorten' }}
+        </button>
+      </div>
+      @if (submitError()) {
+        <p class="error">{{ submitError() }}</p>
+      }
+      @if (createdLink(); as link) {
+        <p class="success">
+          Short link:
+          <a [href]="link.shortUrl" target="_blank" rel="noopener">{{ link.shortUrl }}</a>
+        </p>
+      }
+    </form>
+
+    <section class="links">
+      <div class="links-header">
+        <h2>All Links</h2>
+        <button type="button" class="ghost" (click)="reloadLinks()" [disabled]="loading()">Refresh</button>
+      </div>
+
+      @if (loadError()) {
+        <p class="error">{{ loadError() }}</p>
+      }
+
+      @if (loading()) {
+        <p class="muted">Loading links...</p>
+      } @else if (links().length === 0) {
+        <p class="muted">No links yet.</p>
+      } @else {
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Original URL</th>
+                <th>Hits</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (link of links(); track link.code) {
+                <tr>
+                  <td><a [href]="link.shortUrl" target="_blank" rel="noopener">{{ link.code }}</a></td>
+                  <td><a [href]="link.url" target="_blank" rel="noopener">{{ link.url }}</a></td>
+                  <td>{{ link.hits }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      }
+    </section>
+  </section>
+</main>
