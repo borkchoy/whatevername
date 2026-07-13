@@ -2,4 +2,3 @@
 .gitmodules
 node_modules
 npm-debug.log*
-Dockerfile*
